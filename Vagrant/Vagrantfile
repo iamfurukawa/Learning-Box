@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   
   config.vm.synced_folder '.', '/vagrant', disabled: true
   config.vm.synced_folder "~/Documents/dev/shared", "/vagrant/shared", mount_options: ["dmode=775,fmode=777"]
-  config.vm.provision :shell, path: "~/Documents/dev/shared/Vagrant/setup-enviroment.sh"
+  config.vm.provision :shell, path: "~/Documents/dev/shared/Vagrant/setup-environment.sh"
 
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
