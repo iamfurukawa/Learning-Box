@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+ENV["LC_ALL"] = "en_US.UTF-8"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+
+  config.vm.define "Learning-Box"
+  config.vm.hostname = "iamfurukawa"
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+  end
+
+  config.vm.network :private_network, ip: "6.6.6.6"
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.vm.synced_folder "~/Documents/dev/shared", "/vagrant/shared", mount_options: ["dmode=775,fmode=777"]
+  config.vm.provision :shell, path: "~/Documents/dev/shared/Vagrant/setup-enviroment.sh"
+
+  config.ssh.forward_agent = true
+  config.ssh.forward_x11 = true
+end
