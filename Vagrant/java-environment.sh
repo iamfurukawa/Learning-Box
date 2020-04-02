@@ -21,8 +21,17 @@ echo "alias stopTomcat='sudo systemctl stop tomcat'" >> /home/vagrant/.bashrc
 echo -e "\e[1;33mInstalling Maven\e[0m"
 sudo apt -qy install maven >> /vagrant/shared/Vagrant/logs/maven.log 2>> /vagrant/shared/Vagrant/logs/maven-error.log
 
-echo -e "\e[1;33mInstalling Intellij\e[0m"
-sudo snap install intellij-idea-community --classic >> /vagrant/shared/Vagrant/logs/intellij-idea-community.log 2>> /vagrant/shared/Vagrant/logs/intellij-idea-community-error.log
+#echo -e "\e[1;33mInstalling Intellij\e[0m"
+#sudo snap install intellij-idea-community --classic >> /vagrant/shared/Vagrant/logs/intellij-idea-community.log 2>> /vagrant/shared/Vagrant/logs/intellij-idea-community-error.log
+
+echo -e "\e[1;33mInstalling Eclipse\e[0m"
+cd /tmp
+wget http://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/2020-03/R/eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz >> /vagrant/shared/Vagrant/logs/curl-eclipse.log 2>> /vagrant/shared/Vagrant/logs/curl-eclipse-error.log
+sudo tar -zxvf eclipse-*.tar.gz -C /usr/ >> /vagrant/shared/Vagrant/logs/tar-eclipse.log 2>> /vagrant/shared/Vagrant/logs/tar-eclipse-error.log
+sudo ln -s /usr/eclipse/eclipse /usr/bin/eclipse
+
+echo -e "\e[1;33mInstalling libswt-gtk-4-jni\e[0m"
+sudo apt -qy install libswt-gtk-4-jni >> /vagrant/shared/Vagrant/logs/libswt-gtk-4-jni.log 2>> /vagrant/shared/Vagrant/logs/libswt-gtk-4-jni-error.log
 
 echo -e "\e[1;33mConfiguring Tomcat\e[0m"
 sudo groupadd tomcat
