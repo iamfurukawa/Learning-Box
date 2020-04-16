@@ -5,7 +5,7 @@ You need to create this directory path ```~/Documents/dev/shared``` and clone th
 
 Currently the script creates a java environment with:
   - Java 11 (JDK/JRE);
-  - IntelliJ IDEA;
+  - IntelliJ IDEA or Eclipse (Default);
   - Tomcat 9.0.33;
   - Maven;
   - x11.
