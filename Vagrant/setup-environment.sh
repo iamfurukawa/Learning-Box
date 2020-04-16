@@ -23,6 +23,6 @@ echo -e "\e[1;33mInstalling x11-apps\e[0m"
 sudo apt -qy install x11-apps >> /vagrant/shared/Vagrant/logs/x11-apps.log 2>> /vagrant/shared/Vagrant/logs/x11-apps-error.log
 
 echo -e "\e[1;33mConfiguring the Sub-enviroment\e[0m"
-source /vagrant/shared/Vagrant/java-environment.sh
+source /vagrant/shared/Vagrant/angular-environment.sh
 
 echo -e "\e[1;33mSetup Finished\e[0m"
